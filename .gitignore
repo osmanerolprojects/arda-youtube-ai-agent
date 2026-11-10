@@ -1,0 +1,27 @@
+# Python environments
+.venv/
+.venv312/
+__pycache__/
+*.pyc
+
+# Credentials and secrets
+.env
+.env.*
+!.env.example
+client_secret.json
+youtube_token.json
+*.pem
+*.key
+
+# Local databases
+videos.db
+*.sqlite
+*.sqlite3
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# IDE settings
+.vscode/
+.idea/
