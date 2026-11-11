@@ -1128,7 +1128,7 @@ videos.db
 
 ```bash
 
-git clone https://github.com/YOUR\_USERNAME/arda-youtube-ai-agent.git
+git clone https://github.com/osmanerolit-eng/arda-youtube-ai-agent.git
 
 cd arda-youtube-ai-agent
 
@@ -1136,7 +1136,7 @@ cd arda-youtube-ai-agent
 
 
 
-Replace `YOUR\_USERNAME` with the repository owner's GitHub username.
+
 
 
 
