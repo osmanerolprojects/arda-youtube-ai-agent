@@ -1,14 +1,17 @@
 
 
-\# Arda YouTube AI Agent
+# Arda YouTube AI Agent
 
 
 
-\*\*An AI-powered YouTube monitoring, video analysis, and human-in-the-loop engagement system built with Python, LangGraph, Ollama, and the YouTube Data API.\*\*
+**An AI-powered YouTube monitoring, video analysis, and human-in-the-loop engagement system built with Python, LangGraph, Ollama, and the YouTube Data API.**
 
 
 
-\## 1. Project Overview
+## Dashboard Preview
+
+![Arda YouTube AI Agent Dashboard](screenshots/dashboard.png)
+## 1. Project Overview
 
 
 
@@ -24,7 +27,7 @@ The system combines traditional automation with AI-based decision-making, struct
 
 
 
-\### Key Features
+### Key Features
 
 
 
@@ -56,7 +59,7 @@ The system combines traditional automation with AI-based decision-making, struct
 
 
 
-\## 2. Technology Stack
+## 2. Technology Stack
 
 
 
@@ -92,7 +95,7 @@ The system combines traditional automation with AI-based decision-making, struct
 
 
 
-\## 3. System Architecture
+## 3. System Architecture
 
 
 
@@ -218,15 +221,15 @@ This is a conceptual architecture diagram. The dashboard imports application mod
 
 
 
-\## 4. Detailed Application Workflow
+## 4. Detailed Application Workflow
 
 
 
-\### Stage 1 — Application Initialization
+### Stage 1 — Application Initialization
 
 
 
-\*\*Files:\*\*
+**Files:**
 
 \- `start\_agent.ps1`
 
@@ -236,7 +239,7 @@ This is a conceptual architecture diagram. The dashboard imports application mod
 
 
 
-\*\*Technologies:\*\*
+**Technologies:**
 
 \- PowerShell
 
@@ -250,7 +253,7 @@ The application provides two primary entry points.
 
 
 
-\#### PowerShell Launcher
+#### PowerShell Launcher
 
 
 
@@ -266,7 +269,7 @@ The launcher describes three monitoring cycles with a 20-minute interval.
 
 
 
-\#### Desktop Dashboard
+#### Desktop Dashboard
 
 
 
@@ -292,7 +295,7 @@ The dashboard allows the user to:
 
 
 
-\*\*Purpose:\*\*
+**Purpose:**
 
 
 
@@ -304,15 +307,15 @@ Separate application execution and user interaction from the underlying processi
 
 
 
-\### Stage 2 — YouTube Video Discovery
+### Stage 2 — YouTube Video Discovery
 
 
 
-\*\*File:\*\* `main\_agent.py`
+**File:** `main\_agent.py`
 
 
 
-\*\*Functions:\*\*
+**Functions:**
 
 \- `search\_youtube()`
 
@@ -324,7 +327,7 @@ Separate application execution and user interaction from the underlying processi
 
 
 
-\*\*Technologies:\*\*
+**Technologies:**
 
 \- YouTube Data API v3
 
@@ -352,7 +355,7 @@ The application uses filtering logic to identify relevant Real Madrid-related co
 
 
 
-\*\*Purpose:\*\*
+**Purpose:**
 
 
 
@@ -360,7 +363,7 @@ Automate content discovery and collect structured information for subsequent ana
 
 
 
-\*\*Technical lesson:\*\*
+**Technical lesson:**
 
 
 
@@ -372,23 +375,23 @@ External APIs allow AI applications to interact with real-world data sources.
 
 
 
-\### Stage 3 — Database Initialization and Storage
+### Stage 3 — Database Initialization and Storage
 
 
 
-\*\*File:\*\* `main\_agent.py`
+**File:** `main\_agent.py`
 
 
 
-\*\*Function:\*\* `initialize\_database()`
+**Function:** `initialize\_database()`
 
 
 
-\*\*Technology:\*\* SQLite
+**Technology:** SQLite
 
 
 
-\*\*Database:\*\* `videos.db`
+**Database:** `videos.db`
 
 
 
@@ -416,7 +419,7 @@ The `videos` table uses `video\_id` as its primary key.
 
 
 
-\*\*Purpose:\*\*
+**Purpose:**
 
 
 
@@ -424,7 +427,7 @@ Persist information between application executions and support repeated processi
 
 
 
-\*\*Technical lesson:\*\*
+**Technical lesson:**
 
 
 
@@ -436,11 +439,11 @@ State persistence is essential for automation systems that must retain operation
 
 
 
-\### Stage 4 — AI-Powered Video Analysis
+### Stage 4 — AI-Powered Video Analysis
 
 
 
-\*\*Files:\*\*
+**Files:**
 
 \- `main\_agent.py`
 
@@ -448,7 +451,7 @@ State persistence is essential for automation systems that must retain operation
 
 
 
-\*\*Functions:\*\*
+**Functions:**
 
 \- `analyze\_video()`
 
@@ -458,7 +461,7 @@ State persistence is essential for automation systems that must retain operation
 
 
 
-\*\*Technologies:\*\*
+**Technologies:**
 
 \- LangGraph
 
@@ -496,7 +499,7 @@ from ollama import chat
 
 
 
-\*\*Purpose:\*\*
+**Purpose:**
 
 
 
@@ -504,7 +507,7 @@ Use language-model capabilities to interpret video information and support relev
 
 
 
-\*\*Technical lesson:\*\*
+**Technical lesson:**
 
 
 
@@ -516,7 +519,7 @@ Local inference allows AI processing without relying on a cloud-hosted LLM API.
 
 
 
-\## 5. LangGraph Decision Workflow
+## 5. LangGraph Decision Workflow
 
 
 
@@ -524,19 +527,19 @@ This is the central AI workflow of the application.
 
 
 
-\*\*File:\*\* `langgraph\_agent.py`
+**File:** `langgraph\_agent.py`
 
 
 
-\*\*Framework:\*\* LangGraph
+**Framework:** LangGraph
 
 
 
-\*\*Model:\*\* Qwen3 1.7B
+**Model:** Qwen3 1.7B
 
 
 
-\*\*Inference Engine:\*\* Ollama
+**Inference Engine:** Ollama
 
 
 
@@ -544,7 +547,7 @@ The application implements a `StateGraph` containing five processing nodes.
 
 
 
-\### Workflow Diagram
+### Workflow Diagram
 
 
 
@@ -604,11 +607,11 @@ The application implements a `StateGraph` containing five processing nodes.
 
 
 
-\### Node 1 — analyze\_node
+### Node 1 — analyze\_node
 
 
 
-\*\*Function:\*\* `analyze\_node(state)`
+**Function:** `analyze\_node(state)`
 
 
 
@@ -620,7 +623,7 @@ It produces a decision that is used by the routing function.
 
 
 
-\*\*Purpose:\*\*
+**Purpose:**
 
 
 
@@ -628,11 +631,11 @@ Perform AI-assisted content interpretation.
 
 
 
-\### Conditional Routing — route\_video
+### Conditional Routing — route\_video
 
 
 
-\*\*Function:\*\* `route\_video(state)`
+**Function:** `route\_video(state)`
 
 
 
@@ -656,7 +659,7 @@ Possible routes:
 
 
 
-\*\*Purpose:\*\*
+**Purpose:**
 
 
 
@@ -664,11 +667,11 @@ Control execution flow based on AI analysis results.
 
 
 
-\### Node 2 — relevant\_node
+### Node 2 — relevant\_node
 
 
 
-\*\*Function:\*\* `relevant\_node(state)`
+**Function:** `relevant\_node(state)`
 
 
 
@@ -680,11 +683,11 @@ Prepares the relevant-video path for comment generation.
 
 
 
-\### Node 3 — generate\_comment\_node
+### Node 3 — generate\_comment\_node
 
 
 
-\*\*Function:\*\* `generate\_comment\_node(state)`
+**Function:** `generate\_comment\_node(state)`
 
 
 
@@ -696,7 +699,7 @@ The application includes reusable comment phrases and a predefined signature.
 
 
 
-\*\*Purpose:\*\*
+**Purpose:**
 
 
 
@@ -704,11 +707,11 @@ Prepare suggested content for later review.
 
 
 
-\### Node 4 — irrelevant\_node
+### Node 4 — irrelevant\_node
 
 
 
-\*\*Function:\*\* `irrelevant\_node(state)`
+**Function:** `irrelevant\_node(state)`
 
 
 
@@ -720,11 +723,11 @@ The workflow terminates without proceeding to comment generation.
 
 
 
-\### Node 5 — uncertain\_node
+### Node 5 — uncertain\_node
 
 
 
-\*\*Function:\*\* `uncertain\_node(state)`
+**Function:** `uncertain\_node(state)`
 
 
 
@@ -736,7 +739,7 @@ The application identifies these cases as requiring manual review.
 
 
 
-\### Graph Construction
+### Graph Construction
 
 
 
@@ -784,7 +787,7 @@ agent = builder.compile()
 
 
 
-\*\*Technical lesson:\*\*
+**Technical lesson:**
 
 
 
@@ -804,11 +807,11 @@ The LangGraph workflow does not directly publish YouTube comments.
 
 
 
-\## 6. Comment Draft Generation
+## 6. Comment Draft Generation
 
 
 
-\*\*Files:\*\*
+**Files:**
 
 \- `langgraph\_agent.py`
 
@@ -816,7 +819,7 @@ The LangGraph workflow does not directly publish YouTube comments.
 
 
 
-\*\*Technologies:\*\*
+**Technologies:**
 
 \- Python
 
@@ -838,7 +841,7 @@ Generated comment drafts can be stored for later review.
 
 
 
-\*\*Purpose:\*\*
+**Purpose:**
 
 
 
@@ -850,15 +853,15 @@ Separate AI-generated content from externally published content.
 
 
 
-\## 7. Human-in-the-Loop Approval
+## 7. Human-in-the-Loop Approval
 
 
 
-\*\*File:\*\* `arda\_dashboard.pyw`
+**File:** `arda\_dashboard.pyw`
 
 
 
-\*\*Functions:\*\*
+**Functions:**
 
 \- `display\_video()`
 
@@ -870,7 +873,7 @@ Separate AI-generated content from externally published content.
 
 
 
-\*\*Technologies:\*\*
+**Technologies:**
 
 \- Tkinter
 
@@ -890,7 +893,7 @@ The application separates review decisions from the AI generation process.
 
 
 
-\*\*Purpose:\*\*
+**Purpose:**
 
 
 
@@ -898,7 +901,7 @@ Maintain human control over externally visible actions.
 
 
 
-\*\*Technical lesson:\*\*
+**Technical lesson:**
 
 
 
@@ -910,19 +913,19 @@ Human-in-the-loop architecture is particularly valuable when AI systems interact
 
 
 
-\## 8. YouTube Authentication
+## 8. YouTube Authentication
 
 
 
-\*\*File:\*\* `youtube\_auth.py`
+**File:** `youtube\_auth.py`
 
 
 
-\*\*Function:\*\* `get\_credentials()`
+**Function:** `get\_credentials()`
 
 
 
-\*\*Technologies:\*\*
+**Technologies:**
 
 \- Google OAuth 2.0
 
@@ -942,7 +945,7 @@ Local OAuth credentials and tokens are excluded from version control.
 
 
 
-\*\*Purpose:\*\*
+**Purpose:**
 
 
 
@@ -954,11 +957,11 @@ Separate authentication management from business logic.
 
 
 
-\## 9. Comment Publishing
+## 9. Comment Publishing
 
 
 
-\*\*Files:\*\*
+**Files:**
 
 \- `youtube\_post.py`
 
@@ -968,7 +971,7 @@ Separate authentication management from business logic.
 
 
 
-\*\*Technologies:\*\*
+**Technologies:**
 
 \- YouTube Data API v3
 
@@ -984,7 +987,7 @@ The dashboard provides a user-controlled publishing workflow.
 
 
 
-\*\*Purpose:\*\*
+**Purpose:**
 
 
 
@@ -996,11 +999,11 @@ Separate analysis, approval, authentication, and external execution.
 
 
 
-\## 10. Monitoring and Reanalysis
+## 10. Monitoring and Reanalysis
 
 
 
-\*\*Files:\*\*
+**Files:**
 
 \- `main\_agent.py`
 
@@ -1008,7 +1011,7 @@ Separate analysis, approval, authentication, and external execution.
 
 
 
-\*\*Functions:\*\*
+**Functions:**
 
 \- `run\_cycle()`
 
@@ -1030,7 +1033,7 @@ Previously discovered videos can also be reanalyzed through dedicated applicatio
 
 
 
-\*\*Purpose:\*\*
+**Purpose:**
 
 
 
@@ -1042,7 +1045,7 @@ Support repeated data collection and processing rather than a single execution.
 
 
 
-\## 11. Project Structure
+## 11. Project Structure
 
 
 
@@ -1102,11 +1105,11 @@ videos.db
 
 
 
-\## 12. Installation
+## 12. Installation
 
 
 
-\### Prerequisites
+### Prerequisites
 
 
 
@@ -1122,7 +1125,7 @@ videos.db
 
 
 
-\### Clone Repository
+### Clone Repository
 
 
 
@@ -1140,7 +1143,7 @@ cd arda-youtube-ai-agent
 
 
 
-\### Create Python Virtual Environment
+### Create Python Virtual Environment
 
 
 
@@ -1152,7 +1155,7 @@ py -3.12 -m venv .venv312
 
 
 
-\### Activate Virtual Environment
+### Activate Virtual Environment
 
 
 
@@ -1164,7 +1167,7 @@ py -3.12 -m venv .venv312
 
 
 
-\### Install Dependencies
+### Install Dependencies
 
 
 
@@ -1176,7 +1179,7 @@ python -m pip install -r requirements.txt
 
 
 
-\### Install the Ollama Model
+### Install the Ollama Model
 
 
 
@@ -1192,7 +1195,7 @@ ollama pull qwen3:1.7b
 
 
 
-\### Configure Credentials
+### Configure Credentials
 
 
 
@@ -1212,7 +1215,7 @@ The exact environment variable names must be verified against the application's 
 
 
 
-\### Start the Dashboard
+### Start the Dashboard
 
 
 
@@ -1228,7 +1231,7 @@ python .\\arda\_dashboard.pyw
 
 
 
-\## 13. Security Considerations
+## 13. Security Considerations
 
 
 
@@ -1274,7 +1277,7 @@ Future security improvements include automated secret scanning, dependency audit
 
 
 
-\## 14. Agentic AI Concepts Demonstrated
+## 14. Agentic AI Concepts Demonstrated
 
 
 
@@ -1282,7 +1285,7 @@ This project demonstrates several foundational AI engineering concepts.
 
 
 
-\### AI Workflow Orchestration
+### AI Workflow Orchestration
 
 
 
@@ -1290,7 +1293,7 @@ LangGraph organizes processing into explicit nodes and conditional transitions.
 
 
 
-\### Local LLM Integration
+### Local LLM Integration
 
 
 
@@ -1298,7 +1301,7 @@ Ollama provides access to the Qwen3 1.7B model running locally.
 
 
 
-\### API Integration
+### API Integration
 
 
 
@@ -1306,7 +1309,7 @@ The YouTube API provides external data and authorized publishing capabilities.
 
 
 
-\### State Persistence
+### State Persistence
 
 
 
@@ -1314,7 +1317,7 @@ SQLite stores information between execution cycles.
 
 
 
-\### Conditional Decision-Making
+### Conditional Decision-Making
 
 
 
@@ -1322,7 +1325,7 @@ AI classification results determine which LangGraph branch executes.
 
 
 
-\### Human-in-the-Loop Control
+### Human-in-the-Loop Control
 
 
 
@@ -1330,7 +1333,7 @@ The user reviews AI-generated content before publication.
 
 
 
-\### Modular Software Architecture
+### Modular Software Architecture
 
 
 
@@ -1338,7 +1341,7 @@ Separate Python modules handle discovery, analysis, authentication, publishing, 
 
 
 
-\### Repeated Execution
+### Repeated Execution
 
 
 
@@ -1354,7 +1357,7 @@ The application is an AI-assisted automation system with structured decision wor
 
 
 
-\## 15. Future Improvements
+## 15. Future Improvements
 
 
 
@@ -1386,7 +1389,7 @@ The application is an AI-assisted automation system with structured decision wor
 
 
 
-\## 16. Learning Outcomes and Future Cybersecurity Applications
+## 16. Learning Outcomes and Future Cybersecurity Applications
 
 
 
@@ -1398,7 +1401,7 @@ The architecture introduces reusable design principles that can be applied to cy
 
 
 
-\### Security Alert Triage Agent
+### Security Alert Triage Agent
 
 
 
@@ -1406,7 +1409,7 @@ Retrieve SIEM alerts, enrich indicators, correlate evidence, and prepare analyst
 
 
 
-\### Threat Intelligence Agent
+### Threat Intelligence Agent
 
 
 
@@ -1414,7 +1417,7 @@ Collect threat intelligence, extract indicators of compromise, and correlate fin
 
 
 
-\### Windows Server Hardening Agent
+### Windows Server Hardening Agent
 
 
 
@@ -1422,7 +1425,7 @@ Evaluate system configurations against security baselines such as CIS Benchmarks
 
 
 
-\### Incident Investigation Agent
+### Incident Investigation Agent
 
 
 
@@ -1430,7 +1433,7 @@ Analyze authentication and endpoint events, correlate suspicious activity, and m
 
 
 
-\### Lateral Movement Investigation Agent
+### Lateral Movement Investigation Agent
 
 
 
@@ -1460,11 +1463,11 @@ These future projects can reuse architectural patterns introduced here:
 
 
 
-\## 17. Project Status
+## 17. Project Status
 
 
 
-\*\*Personal Agentic AI Learning Project\*\*
+**Personal Agentic AI Learning Project**
 
 
 
