@@ -1131,7 +1131,7 @@ videos.db
 
 ```bash
 
-git clone https://github.com/osmanerolit-eng/arda-youtube-ai-agent.git
+git clone https://github.com/osmanerolprojects/arda-youtube-ai-agent.git
 
 cd arda-youtube-ai-agent
 
